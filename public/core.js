@@ -57,4 +57,8 @@ function mainController($scope, $http) {
         };
     }
 
+    $scope.goto = function (url) {
+        window.location.href = url;
+        return false;
+    }
 }

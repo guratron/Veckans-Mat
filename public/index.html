@@ -34,14 +34,14 @@
     <!-- HEADER AND TODO COUNT -->
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Matappen! <span class="label label-info">{{ todos.length }}</span></h1>
+            <h1>Matappen med <span class="label label-info">{{ todos.length }}</span> maträtter</h1>
         </div>
         <div class="table">
             <div class="table-row">
                 <div class=col style="font-weight: bold;" ng-repeat="day in days" ng-bind="dagar[$index]"></div>
             </div>
             <div class="table-row">
-                <div class=col ng-repeat="day in days" ng-bind="todos[day].text"></div>
+                <div class=col ng-repeat="day in days" ng-bind="todos[day].text" ng-click="goto('edit/' + todos[day]._id)"></div>
             </div>
             <div class="table-row">
                 <div class=col ng-repeat="day in days"><button ng-click="updateDay($index, todos.length)">Skaka om
@@ -60,8 +60,7 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="Mera krubb?"
-                            ng-model="formData.text">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Mera krubb?" ng-model="formData.text">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
