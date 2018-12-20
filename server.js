@@ -9,7 +9,7 @@
     // configuration =================
 
     
-    mongoose.connect('mongodb+srv://gdice:XhEFkeUVoF6j4i1u@todo-ekauy.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
+    mongoose.connect('mongodb://gdice:<PASSWORD>@todo-shard-00-00-ekauy.mongodb.net:27017,todo-shard-00-01-ekauy.mongodb.net:27017,todo-shard-00-02-ekauy.mongodb.net:27017/test?ssl=true&replicaSet=ToDo-shard-0&authSource=admin&retryWrites=true', { useNewUrlParser: true });
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 
