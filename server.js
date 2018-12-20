@@ -9,7 +9,7 @@
     // configuration =================
 
     
-    mongoose.connect('mongodb://gdice:XhEFkeUVoF6j4i1u@todo-ekauy.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
+    mongoose.connect('mongodb+srv://gdice:XhEFkeUVoF6j4i1u@todo-ekauy.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 
