@@ -9,7 +9,7 @@
     // configuration =================
 
     
-    mongoose.connect('mongodb://gdice:<PASSWORD>@todo-shard-00-00-ekauy.mongodb.net:27017,todo-shard-00-01-ekauy.mongodb.net:27017,todo-shard-00-02-ekauy.mongodb.net:27017/test?ssl=true&replicaSet=ToDo-shard-0&authSource=admin&retryWrites=true', 
+    mongoose.connect('mongodb://gdice:XhEFkeUVoF6j4i1u@todo-shard-00-00-ekauy.mongodb.net:27017,todo-shard-00-01-ekauy.mongodb.net:27017,todo-shard-00-02-ekauy.mongodb.net:27017/test?ssl=true&replicaSet=ToDo-shard-0&authSource=admin&retryWrites=true', 
     { useNewUrlParser: true }, function(err) {
         if (err) {
             console.log(err)
