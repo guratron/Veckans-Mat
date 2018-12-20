@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+        .table                  { display: table; }
+        .table-row                    { display: table-row; }
+        .col                    { display: table-cell; size: 200px; text-align: center; }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+
+<body ng-controller="mainController">
+    <!-- HEADER AND TODO COUNT -->
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Matappen! <span class="label label-info">{{ todos.length }}</span></h1>
+        </div>
+        <div class="table">
+            <div class="table-row">
+                <div class=col style="font-weight: bold;" ng-repeat="day in days" ng-bind="dagar[$index]"></div>
+            </div>
+            <div class="table-row">
+                <div class=col ng-repeat="day in days" ng-bind="todos[day].text"></div>
+            </div>
+            <div class="table-row">
+                <div class=col ng-repeat="day in days"><button ng-click="updateDay($index, todos.length)">Skaka om
+                        {{dagar[$index]}}</button></div>
+            </div>
+        </div>
+        <button type="submit" style="width: 100%" class="btn btn-primary btn-lg" ng-click="updateDays(todos.length)">Skaka
+            om!</button>
+        <div style="height:150px"></div>
+
+
+        <!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever"
+                            ng-model="formData.text">
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Lägg till</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TODO LIST -->
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                <div class="checkbox" ng-repeat="todo in todos">
+                    <label>
+                        <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
